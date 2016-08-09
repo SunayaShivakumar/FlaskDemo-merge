@@ -273,6 +273,7 @@ def fixed_heap_insert(h, size, input):
 
 def ComputeMatch(lookup, tags):
 	tags = set(tags)
+	print(tags)
 	tops = []
 	allwords = set()
 	for k, v in lookup.items():

@@ -1,3 +1,10 @@
+.sunutextbox {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  min-height: 200px;
+  max-height: 1000px;
+}
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;

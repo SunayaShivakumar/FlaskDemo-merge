@@ -33,14 +33,14 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-xs-12">
                 <h1 class="page-header">Here are some suggestions...
                 </h1>
             </div>
         </div>
 
         <div class="col">
-            <div class="col-md-12">
+            <div class="col-xs-12">
                 
                 <div id="loadingtext" style="display:none"><h3>Processing... We will suggest some items that might fit the occasion you described.</h3></div>
                 <div>
@@ -74,7 +74,7 @@
             document.getElementById("finishbutton").addEventListener("click", function() {
                             var form = document.createElement('form');
                             form.method = "GET";
-                            form.action = "{{url_for('thankyou')}}";
+                            form.action = "{{url_for('survey_page3')}}";
                             form.submit();
             });
 
