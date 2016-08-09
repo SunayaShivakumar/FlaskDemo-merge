@@ -52,7 +52,10 @@
         <div class="row">
             <div class="col-xs-12">
                 <p>Describe in detail, the event or occasion you are wearing this outfit for.</p>
-                <div class="ui-widget sunutextbox">{{ form.event(maxlength=1500,class="sunutextbox") }}</div>
+                <div class="ui-widget sunutextbox">
+                    {{ form.event(maxlength=1500,class="sunutextbox2",id="transcript") }}
+                    <img onclick="startDictation()" src="http://i.imgur.com/cHidSVu.gif" />
+                </div>
                 <div id="loadingtext" style="display:none"><h3>Processing... We will suggest some items that might fit the occasion you described.</h3></div>
                 <input id="finishbutton" type="submit" value="NEXT">
                 <div id="results"></div>
@@ -64,11 +67,33 @@
     <link rel="stylesheet" href="static/jquery-ui-1.11.4.custom/jquery-ui.css">
     <script src="static/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
     <script src="/static/auto_test_page3.js"></script>
-    <!-- jQuery -->
-    <!-- <script src="js/jquery.js"></script> -->
-
-    <!-- Bootstrap Core JavaScript -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script>
+          function startDictation() {
+         
+            if (window.hasOwnProperty('webkitSpeechRecognition')) {
+         
+              var recognition = new webkitSpeechRecognition();
+         
+              recognition.continuous = false;
+              recognition.interimResults = false;
+         
+              recognition.lang = "en-US";
+              recognition.start();
+         
+              recognition.onresult = function(e) {
+                document.getElementById('transcript').value
+                                         = e.results[0][0].transcript;
+                recognition.stop();
+                document.getElementById('labnol').submit();
+              };
+         
+              recognition.onerror = function(e) {
+                recognition.stop();
+              }
+         
+            }
+          }
+    </script>
 </body>
 
 </html>
